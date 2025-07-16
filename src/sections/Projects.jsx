@@ -103,7 +103,7 @@ const Projects = () => {
             </button>
           </div>
         </div>
-        <div className="border border-black-300 bg-black-200 rounded-lg h-96 md:h-full">
+        <div className="border border-black-300 bg-black-200 rounded-lg h-80 sm:h-96 md:h-full">
           <Canvas dpr={[1, 1.5]}>
             {/* Reduced to one ambient and one directional light for performance */}
             <ambientLight intensity={1.2} />
