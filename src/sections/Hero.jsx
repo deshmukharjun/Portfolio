@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { Leva } from 'leva';
 import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
@@ -21,7 +21,8 @@ const Hero = () => {
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
 
-  const sizes = calculateSizes(isSmall, isMobile, isTablet);
+  // Memoize sizes calculation for performance
+  const sizes = useMemo(() => calculateSizes(isSmall, isMobile, isTablet), [isSmall, isMobile, isTablet]);
   const role = "A Frontend Developer";
 
   return (
@@ -34,7 +35,7 @@ const Hero = () => {
       </div>
 
       <div className="w-full h-full absolute inset-0">
-        <Canvas className="w-full h-full">
+        <Canvas dpr={[1, 1.5]} className="w-full h-full">
           <Suspense fallback={<CanvasLoader />}>
             <Leva hidden />
             <PerspectiveCamera makeDefault position={[30, 20, 40]} />
@@ -55,11 +56,9 @@ const Hero = () => {
               )}
             </HeroCamera>
 
-            <ambientLight intensity={3} />
-            <directionalLight position={[10, 10, 10]} intensity={1} />
-            <directionalLight position={[-10, 10, 10]} intensity={1} />
-            <directionalLight position={[-10, -10, 10]} intensity={1} />
-            <directionalLight position={[-10, -10, -10]} intensity={1} />
+            {/* Reduced to one ambient and one directional light for performance */}
+            <ambientLight intensity={1.5} />
+            <directionalLight position={[10, 10, 10]} intensity={0.8} />
           </Suspense>
         </Canvas>
       </div>

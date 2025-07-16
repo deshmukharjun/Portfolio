@@ -10,7 +10,7 @@ import DemoMacbook from '../components/DemoMacbook.jsx';
 import DemoIphone from '../components/DemoIphone.jsx';
 
 const Projects = () => {
-  const [activeCategory, setActiveCategory] = useState('web'); // Default: Web Dev
+  const [activeCategory, setActiveCategory] = useState('app'); // Default: App Dev
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
 
   const projectList = activeCategory === 'web' ? myProjects : myAppProjects;
@@ -104,10 +104,10 @@ const Projects = () => {
           </div>
         </div>
         <div className="border border-black-300 bg-black-200 rounded-lg h-96 md:h-full">
-          <Canvas>
-            <ambientLight intensity={Math.PI} />
-            <directionalLight position={[10, 10, 5]} />
-            <directionalLight position={[-10, 10, 5]} />
+          <Canvas dpr={[1, 1.5]}>
+            {/* Reduced to one ambient and one directional light for performance */}
+            <ambientLight intensity={1.2} />
+            <directionalLight position={[10, 10, 5]} intensity={0.7} />
             <Center>
               <Suspense fallback={<CanvasLoader />}>
                 {activeCategory === 'web' ? (
