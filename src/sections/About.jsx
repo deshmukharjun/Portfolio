@@ -35,7 +35,7 @@ const About = () => {
             <div>
               <p className="grid-headtext">Hey, I’m Arjun Deshmukh</p>
               <p className="grid-subtext">
-                With 2 years of experience, I have honed my skills in frontend and Android Development, 
+                With 2 years of experience, I have honed my skills in Web Development and Android Development, 
                 creating dynamic and responsive websites and apps.
               </p>
             </div>
