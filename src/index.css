@@ -230,3 +230,69 @@ body {
     clip-path 0.2s ease,
     -webkit-clip-path 0.2s ease;
 }
+
+/* Loading Screen Animations */
+@keyframes loadingPulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes loadingGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(147, 51, 234, 0.5);
+  }
+}
+
+@keyframes loadingFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.loading-pulse {
+  animation: loadingPulse 2s ease-in-out infinite;
+}
+
+.loading-glow {
+  animation: loadingGlow 3s ease-in-out infinite;
+}
+
+.loading-fade-in {
+  animation: loadingFadeIn 0.8s ease-out;
+}
+
+/* Custom bounce animation for loading dots */
+@keyframes customBounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+.loading-dot {
+  animation: customBounce 1.4s ease-in-out infinite both;
+}
+
+.loading-dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.loading-dot:nth-child(2) {
+  animation-delay: -0.16s;
+}
