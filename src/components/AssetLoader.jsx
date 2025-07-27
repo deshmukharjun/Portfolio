@@ -164,7 +164,15 @@ const AssetLoader = ({ onLoadingComplete }) => {
 
   return (
     <div className="fixed inset-0 bg-black z-50 flex items-center justify-center">
-      <div className="text-white text-6xl font-mono font-bold tracking-wider">
+      <div 
+        className="text-white text-6xl tracking-wider"
+        style={{
+          fontFamily: 'Poppins, sans-serif',
+          fontWeight: 900,
+          fontSize: '4rem',
+          letterSpacing: '0.1em'
+        }}
+      >
         {progress.toString().padStart(3, '0')}
       </div>
     </div>
